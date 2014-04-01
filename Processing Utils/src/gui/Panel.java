@@ -6,11 +6,12 @@ import processing.core.PApplet;
 import processing.core.PFont;
 
 public class Panel {
-	private static final int FONTCOLOR = 0xffffffff;
+	private static final int DEFAULT_FONT_COLOR = 0xffffffff;
 	private List<PanelItem> tuples;
 	private float x, y;
 	private PFont f;
 	PApplet p;
+	private int fontColor = DEFAULT_FONT_COLOR;
 
 	public Panel(PApplet p, float x, float y) {
 		this.p = p;
@@ -19,10 +20,12 @@ public class Panel {
 		tuples = new LinkedList<PanelItem>();
 		f = p.createFont("Verdana", 12, false);
 	}
+	
+	public void setFontColor(int color) { fontColor  = color; }
 
 	public void draw() {
 		float cy = this.y;
-		p.fill(FONTCOLOR);
+		p.fill(fontColor);
 		for (PanelItem t: tuples) {
 			p.textFont(f);
 			float ascent = p.textAscent();

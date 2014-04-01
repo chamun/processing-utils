@@ -29,7 +29,8 @@ public class InputManager {
 			if (keys[key] != null)
 				keys[key].execute();
 			else
-				Log.instance().warning("Trying to execute an unregistered key!");
+				Log.instance().warning(
+						"Trying to execute an unregistered key! ("+key+")");
 		}
 	}
 }

@@ -22,6 +22,11 @@ public class Log {
 		System.err.println("warning: " + warning);;
 	}
 	
+	public void debug(String msg) {
+		String debug = makeString(msg);
+		System.out.println(debug);;
+	}
+	
 	private String makeString(String msg) {
 		StackTraceElement[] ste = null;
 		StringBuffer error = new StringBuffer();
