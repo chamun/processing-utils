@@ -3,6 +3,8 @@ package log;
 public class Log {
 	
 	private static Log instance;
+	
+	private boolean isOn = true;
 
 	private Log() { }
 	
@@ -14,18 +16,24 @@ public class Log {
 
 	public void error(String msg) {
 		String error = makeString(msg);
-		System.err.println("ERROR: "+error);
+		if (isOn)
+			System.err.println("ERROR: "+error);
 	}
 	
 	public void warning(String msg) {
 		String warning = makeString(msg);
-		System.err.println("warning: " + warning);;
+		if (isOn)
+			System.err.println("warning: " + warning);;
 	}
 	
 	public void debug(String msg) {
 		String debug = makeString(msg);
-		System.out.println(debug);;
+		if (isOn)
+			System.out.println(debug);;
 	}
+	
+	public void turnOn() { isOn = true; }
+	public void turnOff() { isOn = false; }
 	
 	private String makeString(String msg) {
 		StackTraceElement[] ste = null;
