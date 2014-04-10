@@ -24,13 +24,13 @@ public class InputManager {
 		return key >= 0 && key < keys.length; 
 	}
 
-	public void execute(char key) {
+	public boolean execute(char key) {
 		if (isValid(key)) {
-			if (keys[key] != null)
+			if (keys[key] != null){
 				keys[key].execute();
-			else
-				Log.instance().warning(
-						"Trying to execute an unregistered key! ("+key+")");
+				return true;
+			}
 		}
+		return false;
 	}
 }
