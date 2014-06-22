@@ -64,4 +64,6 @@ public class Modes implements PanelItem {
 	public int getCurrentMode() { return currentMode; }
 	public String getString() { return getTitle() + " " + modes.get(currentMode); }
 
+	public int modeNumber() { return modes.size(); }
+
 }
